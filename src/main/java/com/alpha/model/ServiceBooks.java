@@ -2,8 +2,7 @@ package com.alpha.model;
 
 import com.alpha.controller.BooksController;
 import com.alpha.model.entity.Book;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class ServiceBooks {
-	private static final Logger logger = LogManager.getLogger(ServiceBooks.class);
+	private static final Logger logger = Logger.getLogger(BooksController.class);
 
 	private List<Book> bookList;
 	private BookDAO bookDAO;
@@ -28,13 +27,13 @@ public class ServiceBooks {
 	public Book addBook(String name, String author, String publisher, int year, int countPages, double price) {
 		Book newBook = new Book(name, author, publisher, year, countPages, price);
 		bookList.add(newBook);
-		logger.info("Created new book: {}", newBook);
+		logger.info("Created new book: " + newBook);
 		return newBook;
 	}
 
 	public void changePrice(int percents) {
 		bookList.stream().forEach(book -> book.setPrice(book.getPrice() + book.getPrice() * percents / 100.0));
-		logger.info("Books price change to {} percents", percents);
+		logger.info("Books price change to " + percents + " percents");
 	}
 
 	public List<Book> findBooks(String param) {

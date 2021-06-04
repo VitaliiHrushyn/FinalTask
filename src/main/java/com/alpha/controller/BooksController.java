@@ -5,15 +5,14 @@ import com.alpha.model.BookFileDAO;
 import com.alpha.model.ServiceBooks;
 import com.alpha.view.BooksView;
 import com.alpha.view.InputDataView;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 
 import static com.alpha.common.Constants.*;
 
 public class BooksController {
-	private static final Logger logger = LogManager.getLogger(BooksController.class);
+	private static final Logger logger = Logger.getLogger(BooksController.class);
 
 	private BooksView printBooks;
 	private ServiceBooks serviceBooks;
